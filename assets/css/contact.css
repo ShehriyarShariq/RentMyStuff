@@ -1,0 +1,24 @@
+main ul {        
+        list-style: none;
+        text-align: left;
+        font-size: 1.1em;
+}
+
+main ul a, main ul li{
+        text-decoration: none;
+        color: rgb(85, 85, 85);
+}
+
+main ul li {
+        line-height: 1.5em;
+        font-family: Nobile, Helvetica, Arial, sans-serif;
+        cursor: pointer;
+}
+
+main ul li:hover, main ul a:hover {        
+      color: #5234f9;
+}
+
+main ul li i {
+        width: 30px;
+}

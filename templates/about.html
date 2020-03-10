@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>About - RentMyStuff</title>
+
+    <!-- Style(s) -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './css/base.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './css/about.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+
+    <!-- Script(s) -->
+    <!-- <script type="text/javascript" src=""></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header id="headerContainer">
+      <div id="header">
+        {% include 'header.html' %}
+      </div>
+    </header>
+
+    <main>
+      <div class="main_inner">
+        <h1 id="mainHeading">About RentMyStuff</h1>
+        <h1 id="headingPlaceholder">About RentMyStuff</h1>
+
+        <h2><i class="fas fa-question"></i> Why We Made RentMyStuff</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vero
+          odit placeat impedit dolore delectus nulla quis reiciendis saepe
+          cupiditate voluptate quibusdam quidem, modi dolorem quam ullam dolor
+          amet iusto?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vero
+          odit placeat impedit dolore delectus nulla quis reiciendis saepe
+          cupiditate voluptate quibusdam quidem, modi dolorem quam ullam dolor
+          amet iusto?
+        </p>
+
+        <br />
+
+        <h2><i class="fas fa-users"></i> Meet The Team</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vero
+          odit placeat impedit dolore delectus nulla quis reiciendis saepe
+          cupiditate voluptate quibusdam quidem, modi dolorem quam ullam dolor
+          amet iusto?
+        </p>
+      </div>
+    </main>
+
+    <footer id="footerContainer">
+      <div id="footer">
+        {% include 'footer.html' %}
+      </div>
+    </footer>
+
+    <script>
+      var $header = $("#headerContainer");
+
+      $("#about").toggleClass("active_tab");
+
+      if (window.innerWidth <= 600) {
+        $header.toggleClass(
+          "header_scrolled",
+          $(this).scrollTop() > $header.height() - 100
+        );
+      } else {
+        $header.toggleClass(
+          "header_scrolled",
+          $(this).scrollTop() > $header.height() - 30
+        );
+      }
+
+      $("#footerContainer").toggleClass(
+        "footer_stick",
+        $(this).scrollTop < document.body.clientHeight
+      );
+
+      $(document).scroll(function() {
+        if (window.innerWidth <= 600) {
+          $header.toggleClass(
+            "header_scrolled",
+            $(this).scrollTop() > $header.height() - 100
+          );
+        } else {
+          $header.toggleClass(
+            "header_scrolled",
+            $(this).scrollTop() > $header.height() - 30
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Script(s) -->
+    <!-- <script type="text/javascript" src=""></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .header {
+        height: 100%;
+        display: grid;
+        grid-template-columns: max-content auto max-content;
+      }
+
+      #header:nth-child(1) {
+        width: 75vw;
+        margin: auto;
+      }
+
+      #site_title {
+        color: #666 !important;
+        transition: all 0.3s ease;
+        font-size: 1.8rem;
+        font-weight: 100;
+        font-family: Nobile, Helvetica, Arial, sans-serif;
+      }
+
+      #site_title:hover {
+        color: #333;
+        cursor: pointer;
+      }
+
+      #site_title a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      #menu {
+        height: 40px;
+        justify-content: flex-end;
+      }
+
+      .header nav {
+        text-align: right !important;
+        transition: opacity 1s ease, width 0s ease 0.6s;
+        display: inline-block;
+        font-family: Nobile, Helvetica, Arial, sans-serif;
+      }
+
+      .nav_compress {
+        transition: opacity 1s ease 1s, width 1s ease !important;
+      }
+
+      #navBar a {
+        color: #666;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 100;
+        font-size: 0.9rem;
+        margin-right: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      #navBar a:hover {
+        color: #5234f9;
+        cursor: pointer;
+      }
+
+      #search {
+        display: inline-block;
+        text-align: right;
+        transition: width 2s ease;
+        width: 25px;
+      }
+
+      .search_bar {
+        width: 0;
+        height: 40px;
+        margin: 0;
+        border: none;
+        background-color: #e8e8e8;
+        border-radius: 50px;
+        color: black;
+        transition: all 2s ease;
+        font-family: Nobile, Helvetica, Arial, sans-serif;
+      }
+
+      #searchBar:focus {
+        outline: 0;
+      }
+
+      .search_bar_active {
+        width: 95% !important;
+      }
+
+      .search_bar_expand {
+        width: 90%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-shadow: 0px 0px 1px 2px #ddd;
+      }
+
+      #searchBtn {
+        margin-left: 5px;
+        display: inline-block;
+        cursor: pointer;
+        transform: translateY(3px);
+        font-family: Nobile, Helvetica, Arial, sans-serif;
+      }
+
+      #btns {
+        margin-left: 40px;
+      }
+
+      #loginBtn {
+        color: #666;
+        margin-left: 5px;
+        width: 80px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        background-color: transparent;
+        font-family: Nobile, Helvetica, Arial, sans-serif;
+      }
+
+      #loginBtn:hover {
+        background-color: #e3e3e3;
+      }
+
+      #loginBtn:focus {
+        outline: 0;
+      }
+
+      #signUpBtn {
+        width: 120px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        background-color: #20b2aa;
+        color: white;
+        font-weight: bold;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #signUpBtn:hover {
+        background-color: #11918a;
+      }
+
+      #signUpBtn:focus {
+        outline: 0;
+      }
+
+      @media only screen and (max-width: 768px) {
+        header,
+        #header {
+          height: 150px;
+        }
+
+        .header {
+          height: 150px !important;
+          text-align: center;
+          grid-template-columns: auto;
+          grid-template-rows: max-content auto;
+          row-gap: 1em;
+        }
+
+        #menu {
+          justify-content: center;
+        }
+
+        #btns {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header center_vert">
+      <div>
+        <h2 id="site_title"><a href="{% url 'index' %}">RentMyStuff</a></h2>
+      </div>
+
+      <span id="menu" class="center_vert">
+        <nav id="navBar">
+          <a id="explore" href="#">EXPLORE</a>
+          <a id="about" href="{% url 'about' %}">ABOUT</a>
+          <a id="contact" href="{% url 'contact' %}">CONTACT US</a>
+        </nav>
+
+        <span id="search">
+          <input
+            id="searchBar"
+            class="search_bar"
+            type="text"
+            placeholder="Search..."
+          />
+
+          <span id="searchBtn">
+            <img
+              width="16px"
+              height="16px"
+              src="https://pngimage.net/wp-content/uploads/2018/06/search-icon-png-blue-.png"
+            />
+          </span>
+        </span>
+      </span>
+
+      <span id="btns">
+        <button id="signUpBtn">SIGN UP</button>
+        <button id="loginBtn">LOGIN</button>
+      </span>
+    </div>
+
+    <script>
+      let search = document.getElementById("search");
+      let searchBar = document.getElementById("searchBar");
+      let navBar = document.getElementById("navBar");
+
+      const navBarWidth = navBar.getBoundingClientRect().width;
+      navBar.style.width = navBarWidth + "px";
+
+      document
+        .getElementById("searchBtn")
+        .addEventListener("click", function(e) {
+          if (!search.classList.contains("search_bar_active")) {
+            search.classList.add("search_bar_active");
+            searchBar.classList.add("search_bar_expand");
+            navBar.style.opacity = 0;
+            navBar.style.width = 0;
+            navBar.classList.remove("nav_compress");
+          } else {
+            search.classList.remove("search_bar_active");
+            searchBar.classList.remove("search_bar_expand");
+            navBar.style.opacity = 1;
+            navBar.style.width = navBarWidth + "px";
+            navBar.classList.add("nav_compress");
+          }
+        });
+    </script>
+  </body>
+</html>

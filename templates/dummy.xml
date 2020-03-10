@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "dummy.dtd">
+<note>
+	<to>Tove</to><br>
+	<from>Jani</from><br>
+	<heading>Reminder</heading><br>
+	<body>Don't forget me this weekend!</body>
+</note>
+
+<hr>
+
+<note>
+	<to>Sheruu</to><br>
+	<from>Hmm</from><br>
+	<heading>Reminder</heading><br>
+	<body>Hmmmmmmmmmm</body>
+</note>
