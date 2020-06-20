@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Explore - RentMyStuff</title>
+
+  <!-- Style(s) -->
+  <link rel="stylesheet" type="text/css" href="./style/base.css" />
+  <link rel="stylesheet" type="text/css" href="./style/index.css" />
+
+  <!-- Script(s) -->
+  <!-- <script type="text/javascript" src=""></script> -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script>
+    $(function () {
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+    });
+  </script>
+</head>
+
+<body>
+  <header id="headerContainer">
+    <div id="header"></div>
+  </header>
+
+  <main>
+    <div class="main_inner">
+      <div class="main_header" style="width: 100%">
+        <div class="main_header_content">
+          <h1>Rent From &amp; To Anyone<br>For Anything</h1>
+          <p>A crazy simple way to rent stuff and properties online</p>
+
+          <button class="start_renting_btn"><i class="far fa-play-circle"></i> Start Renting</button>
+        </div>
+
+      </div>
+
+      <div class="section center_all">
+
+        <div>
+          <h1><i class="far fa-credit-card"></i>Turn your stuff and properties into business</h1>
+          <ul>
+            <li><i class="far fa-check-circle"></i>Pay your monthly bills with the earnings you'll get from renting out
+              your stuff and properties</li>
+            <li><i class="far fa-check-circle"></i>Treat yourself to something nice</li>
+            <li><i class="far fa-check-circle"></i>Recession proof your life & stay afloat</li>
+            <li><i class="far fa-check-circle"></i>Meet awesome people</li>
+            <li><i class="far fa-check-circle"></i>Get payments straight to your pocket</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="colored_section center_all">
+
+        <div>
+          <h1><i class="fas fa-money-bill"></i>Why buy when you can rent?</h1>
+          <ul>
+            <li><i class="far fa-check-circle"></i>Discover new activities easily</li>
+            <li><i class="far fa-check-circle"></i>Save up for a big occasion by renting items you don't use often
+              instead of buying</li>
+            <li><i class="far fa-check-circle"></i>Help your community & support those around you</li>
+            <li><i class="far fa-check-circle"></i>Rent everything on Rentything when you are on your trip</li>
+            <li><i class="far fa-check-circle"></i>It's greener for the planet</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="section center_all">
+
+        <div>
+          <h1><i class="fas fa-lock"></i>Stay safe, secure & build trust</h1>
+          <ul>
+            <li><i class="far fa-check-circle"></i>Easily see detailed profiles</li>
+            <li><i class="far fa-check-circle"></i>Choose who you rent to and from</li>
+            <li><i class="far fa-check-circle"></i>Communicate easily with others</li>
+            <li><i class="far fa-check-circle"></i>Built in trust system</li>
+            <li><i class="far fa-check-circle"></i>Real & authentic reviews</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="colored_section center_all">
+        <div>
+          <h1><i class="fas fa-lock"></i>Start renting in 60 seconds</h1>
+
+          <button class="start_renting_btn"><i class="far fa-play-circle"></i> Start Renting</button>
+
+          <p><em>Come join thousands of people just like you and take part in the sharing economy</em></p>
+
+        </div>
+      </div>
+
+      <div class="half_section"></div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+  <script>
+    var $header = $("#headerContainer");
+
+    if (window.innerWidth <= 600) {
+      $header.toggleClass('header_scrolled', $(this).scrollTop() > $header.height() - 80);
+    } else {
+      $header.toggleClass('header_scrolled', $(this).scrollTop() > $header.height() - 30);
+    }
+
+    $(document).scroll(function () {
+      if (window.innerWidth <= 600) {
+        $header.toggleClass('header_scrolled', $(this).scrollTop() > $header.height() - 80);
+      } else {
+        $header.toggleClass('header_scrolled', $(this).scrollTop() > $header.height() - 30);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
